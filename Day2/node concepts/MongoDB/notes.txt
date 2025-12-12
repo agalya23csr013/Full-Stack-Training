@@ -1,0 +1,124 @@
+MONGODB
+
+Insert Data
+
+
+1.insertOne()
+Syntax: db.collectionName.insertOne()
+Ex: db.student_details.insertOne({
+  name:"Agal",
+  email:"agal@gmail.com",
+  phone:"33667499958"
+})
+
+2.insertMany()
+Synatx: db.collectionName.insertMany()
+Ex: db.student_details.insertMany([
+  {name:"agalya",email:"agalya@gmail.com"},
+  {name:"ashifa",email:"ashifa@gmail.com"},
+  {name:"bhava",email:"bhava@gmail.com"}
+])
+
+
+Find data / read data from collectionName:
+ 1.findOne()
+  Ex: db.student_details.findOne()
+      i. filter:
+         Syntax:db.collectionName.findOne({filter condition})
+
+             Ex: db.student_details.findOne({
+                 name:"agalya"})
+
+      ii. Projections:
+            Synatx: db.collectionName.findOne({filter condition},{projector condition})
+                   display fields ->value 1 or true
+                   don't want to display ->value 0 or false
+
+            EX:       db.student_details.find({},{_id:0,name:1})
+
+
+2.find() ----- read all details or documents
+  Ex: db.student_details.find()
+      i. filter:
+         Syntax:db.collectionName.find({filter condition})
+
+             Ex: db.student_details.find({
+                 name:"agalya"})
+
+      ii. Projections:
+            Synatx: db.collectionName.findOne({filter condition},{projector condition})
+                   display fields ->value 1 or true
+                   don't want to display ->value 0 or false
+               Ex:    db.student_details.find({},{_id:0,name:1})
+
+
+3.delete:
+     i.deleteOne():
+         Syntax: 
+              db.collectionName.deleteOne({filter condition})
+          Ex:  db.student_details.deleteOne({name:"Agal"})
+    ii.  deleteMany():
+             Synatx: db.collectionName.deleteMany({filter condition})
+             Ex:   db.student_details.deleteOne({name:"Agal"})
+
+
+
+4. Update:
+
+     update operators:
+          1.$set
+          2.$unset
+          3.$pop
+          4.$push
+          5.$inc  (increment operator)
+
+
+          Syntax:    db.collectionName.updateOne({filter condition},{update query})
+
+        1.   $set:    Syntax:   db.collectionName.updateOne({filter condition},{$set:{update query}})
+           Ex: 
+                i.  db.student_details.updateOne({name:"ashifa"},{$set:{phone:"98776556677",collegename:"KEC",branch:'CSE'}})
+                ii. db.student_details.updateOne({name:"ashifa"},{$set:{name:"Aasikaa"}})
+        
+
+        2.   $unset:  Syntax:  db.collectionName.updateOne({filter condition},{$unset:{update query}})
+              Ex:   db.student_details.updateOne({name:"Aasikaa"},{$unset:{phone:""}})
+
+        3.    $inc: Syntax:  
+                 Ex:   db.student_details.updateMany({name:"agalya"},{$inc:{fee:10000}})   ------increment
+                        db.student_details.updateMany({fee:80000},{$inc:{fee:-20000}})   --- decrement 
+
+       4.     $push: 
+                 Ex:   db.student_details.updateMany({name:"agalya"},{$push:{skills:["Angular Js","java","python"]}})
+
+
+
+Datatype:
+         1. String 
+    2. Number
+    3. null
+    4. Array 
+    5. Object
+    6. boolean 
+    7. Function
+    8. ISOTime 
+    9. Date 
+
+
+
+
+Ex:
+    db.CSE.insertOne({
+  name:"Agalya",
+  age:20,
+  active:true,
+  skills:["java","python"],
+  date:Date(),
+  address:{
+    zipcode:638112,
+    city:"Erode"
+  },
+  fun:()=>{},
+  obj:null,
+  time:ISODate()
+})
