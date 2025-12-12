@@ -1,0 +1,41 @@
+Components : 
+-----------
+    1. Class based Components 
+
+
+    2. Function based Components 
+
+    import React from "react";
+
+const Home = () => {
+  return (
+    <>
+      <p>Lorem, ipsum dolor sit </p>
+      <h1>hello</h1>
+    </>
+  );
+};
+
+export default Home;
+
+
+Jsx(Javascript and XML): 
+-------------------------
+    1. if we want to create file the fileName always in starts with Capital Letters
+    2.In Jsx we achieve empty tags 
+    3.parent tag must and should
+    4. { }
+
+
+props : 
+-------
+    ->props are used to transfer Data from one to another Component
+    ->props are immutable
+    ->props : key and value pair
+    ->props are present both in CBC and FBC
+
+States :
+--------
+    ->States are used to hold the data
+    ->States are mutable In Nature
+    ->States are present only in Class Based Component
